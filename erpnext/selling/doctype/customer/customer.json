@@ -3,7 +3,7 @@
  "allow_events_in_timeline": 1,
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "naming_series:",
+ "autoname": "customerid",
  "creation": "2013-06-11 14:26:44",
  "description": "Buyer of Goods and Services.",
  "doctype": "DocType",
@@ -12,6 +12,17 @@
  "field_order": [
   "basic_info",
   "naming_series",
+  "customerid",
+  "companyname",
+  "contactname",
+  "contacttitle",
+  "address",
+  "city",
+  "region",
+  "postalcode",
+  "country",
+  "phone",
+  "fax",
   "salutation",
   "customer_name",
   "gender",
@@ -104,7 +115,6 @@
    "no_copy": 1,
    "oldfieldname": "customer_name",
    "oldfieldtype": "Data",
-   "reqd": 1,
    "search_index": 1
   },
   {
@@ -121,8 +131,7 @@
    "label": "Type",
    "oldfieldname": "customer_type",
    "oldfieldtype": "Select",
-   "options": "Company\nIndividual",
-   "reqd": 1
+   "options": "Company\nIndividual"
   },
   {
    "fieldname": "default_bank_account",
@@ -168,7 +177,6 @@
    "oldfieldname": "customer_group",
    "oldfieldtype": "Link",
    "options": "Customer Group",
-   "reqd": 1,
    "search_index": 1
   },
   {
@@ -180,8 +188,7 @@
    "oldfieldname": "territory",
    "oldfieldtype": "Link",
    "options": "Territory",
-   "print_hide": 1,
-   "reqd": 1
+   "print_hide": 1
   },
   {
    "fieldname": "tax_id",
@@ -493,6 +500,63 @@
    "fieldtype": "Link",
    "label": "Tax Withholding Category",
    "options": "Tax Withholding Category"
+  },
+  {
+   "fieldname": "customerid",
+   "fieldtype": "Data",
+   "label": "CustomerID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "companyname",
+   "fieldtype": "Data",
+   "label": "CompanyName",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contactname",
+   "fieldtype": "Data",
+   "label": "ContactName"
+  },
+  {
+   "fieldname": "contacttitle",
+   "fieldtype": "Data",
+   "label": "ContactTitle"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Data",
+   "label": "Region"
+  },
+  {
+   "fieldname": "postalcode",
+   "fieldtype": "Data",
+   "label": "PostalCode"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "fax",
+   "fieldtype": "Data",
+   "label": "Fax"
   }
  ],
  "icon": "fa fa-user",
@@ -500,7 +564,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-28 12:54:57.258959",
+ "modified": "2021-05-09 17:36:07.626265",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",

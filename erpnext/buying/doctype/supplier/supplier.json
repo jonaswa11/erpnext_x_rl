@@ -3,7 +3,7 @@
  "allow_events_in_timeline": 1,
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "naming_series:",
+ "autoname": "field:supplier_id",
  "creation": "2013-01-10 16:34:11",
  "description": "Supplier of Goods or Services.",
  "doctype": "DocType",
@@ -12,8 +12,18 @@
  "field_order": [
   "basic_info",
   "naming_series",
+  "supplier_id",
   "supplier_name",
+  "contactname",
+  "contacttitle",
+  "address",
+  "city",
+  "region",
+  "postalcode",
   "country",
+  "phone",
+  "fax",
+  "homepage",
   "default_bank_account",
   "tax_id",
   "tax_category",
@@ -82,11 +92,12 @@
    "fieldname": "supplier_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "label": "Supplier Name",
+   "label": "SupplierID",
    "no_copy": 1,
    "oldfieldname": "supplier_name",
    "oldfieldtype": "Data",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "country",
@@ -158,16 +169,14 @@
    "label": "Supplier Group",
    "oldfieldname": "supplier_type",
    "oldfieldtype": "Link",
-   "options": "Supplier Group",
-   "reqd": 1
+   "options": "Supplier Group"
   },
   {
    "default": "Company",
    "fieldname": "supplier_type",
    "fieldtype": "Select",
    "label": "Supplier Type",
-   "options": "Company\nIndividual",
-   "reqd": 1
+   "options": "Company\nIndividual"
   },
   {
    "fieldname": "pan",
@@ -378,13 +387,65 @@
    "fieldname": "allow_purchase_invoice_creation_without_purchase_receipt",
    "fieldtype": "Check",
    "label": "Allow Purchase Invoice Creation Without Purchase Receipt"
+  },
+  {
+   "fieldname": "supplier_id",
+   "fieldtype": "Data",
+   "label": "CompanyName",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "contactname",
+   "fieldtype": "Data",
+   "label": "ContactName"
+  },
+  {
+   "fieldname": "contacttitle",
+   "fieldtype": "Data",
+   "label": "ContactTitle"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Data",
+   "label": "Region"
+  },
+  {
+   "fieldname": "postalcode",
+   "fieldtype": "Data",
+   "label": "PostalCode"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "fax",
+   "fieldtype": "Data",
+   "label": "Fax"
+  },
+  {
+   "fieldname": "homepage",
+   "fieldtype": "Data",
+   "label": "HomePage"
   }
  ],
  "icon": "fa fa-user",
  "idx": 370,
  "image_field": "image",
  "links": [],
- "modified": "2021-01-06 19:51:40.939087",
+ "modified": "2021-05-09 16:45:15.202261",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Supplier",

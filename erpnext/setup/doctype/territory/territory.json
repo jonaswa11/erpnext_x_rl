@@ -11,6 +11,8 @@
  "field_order": [
   "territory_name",
   "parent_territory",
+  "territorydescription",
+  "region",
   "is_group",
   "cb0",
   "territory_manager",
@@ -25,7 +27,7 @@
    "fieldname": "territory_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Territory Name",
+   "label": "TerritoryID",
    "no_copy": 1,
    "oldfieldname": "territory_name",
    "oldfieldtype": "Data",
@@ -117,13 +119,23 @@
    "oldfieldname": "target_details",
    "oldfieldtype": "Table",
    "options": "Target Detail"
+  },
+  {
+   "fieldname": "territorydescription",
+   "fieldtype": "Data",
+   "label": "TerritoryDescription"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Data",
+   "label": "Region"
   }
  ],
  "icon": "fa fa-map-marker",
  "idx": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-02-08 17:10:03.767426",
+ "modified": "2021-05-09 17:40:38.295697",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Territory",

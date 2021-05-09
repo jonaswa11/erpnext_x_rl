@@ -14,13 +14,19 @@
   "name_and_description_section",
   "naming_series",
   "item_code",
-  "variant_of",
   "item_name",
+  "supplier_name",
   "item_group",
+  "unitsprice",
+  "quantityperunit",
+  "unitsinstock",
+  "unitsonorder",
+  "reorderlevel",
+  "disabled",
+  "variant_of",
   "is_item_from_hub",
   "stock_uom",
   "column_break0",
-  "disabled",
   "allow_alternative_item",
   "is_stock_item",
   "include_item_in_manufacturing",
@@ -160,7 +166,7 @@
    "fieldname": "item_code",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "label": "Item Code",
+   "label": "ProductID",
    "oldfieldname": "item_code",
    "oldfieldtype": "Data",
    "reqd": 1,
@@ -184,9 +190,10 @@
    "fieldname": "item_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "label": "Item Name",
+   "label": "ProductName",
    "oldfieldname": "item_name",
    "oldfieldtype": "Data",
+   "reqd": 1,
    "search_index": 1
   },
   {
@@ -195,11 +202,10 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Item Group",
+   "label": "CategoryName",
    "oldfieldname": "item_group",
    "oldfieldtype": "Link",
    "options": "Item Group",
-   "reqd": 1,
    "search_index": 1
   },
   {
@@ -216,8 +222,7 @@
    "label": "Default Unit of Measure",
    "oldfieldname": "stock_uom",
    "oldfieldtype": "Link",
-   "options": "UOM",
-   "reqd": 1
+   "options": "UOM"
   },
   {
    "fieldname": "column_break0",
@@ -227,7 +232,8 @@
    "default": "0",
    "fieldname": "disabled",
    "fieldtype": "Check",
-   "label": "Disabled"
+   "label": "Discontinued",
+   "reqd": 1
   },
   {
    "default": "0",
@@ -1058,6 +1064,37 @@
    "fieldname": "website_image_alt",
    "fieldtype": "Data",
    "label": "Image Description"
+  },
+  {
+   "fieldname": "unitsprice",
+   "fieldtype": "Float",
+   "label": "UnitPrice"
+  },
+  {
+   "fieldname": "unitsinstock",
+   "fieldtype": "Data",
+   "label": "UnitsInStock"
+  },
+  {
+   "fieldname": "unitsonorder",
+   "fieldtype": "Data",
+   "label": "UnitsOnOrder"
+  },
+  {
+   "fieldname": "reorderlevel",
+   "fieldtype": "Data",
+   "label": "ReorderLevel"
+  },
+  {
+   "fieldname": "supplier_name",
+   "fieldtype": "Link",
+   "label": "SupplierID",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "quantityperunit",
+   "fieldtype": "Data",
+   "label": "QuantityPerUnit"
   }
  ],
  "has_web_view": 1,
@@ -1067,7 +1104,7 @@
  "index_web_pages_for_search": 1,
  "links": [],
  "max_attachments": 1,
- "modified": "2021-03-18 14:04:38.575519",
+ "modified": "2021-05-09 17:14:04.031701",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",

@@ -13,9 +13,25 @@
   "basic_information",
   "employee",
   "naming_series",
-  "first_name",
-  "middle_name",
   "last_name",
+  "first_name",
+  "title",
+  "titleofcourtesy",
+  "date_of_birth",
+  "date_of_joining",
+  "address",
+  "city",
+  "region",
+  "postalcode",
+  "country",
+  "homephone",
+  "extension",
+  "photo",
+  "notes",
+  "reports_to",
+  "photopath",
+  "territories",
+  "middle_name",
   "salutation",
   "employee_name",
   "employment_type",
@@ -24,8 +40,6 @@
   "company",
   "status",
   "gender",
-  "date_of_birth",
-  "date_of_joining",
   "employee_number",
   "emergency_contact_details",
   "person_to_be_contacted",
@@ -47,7 +61,6 @@
   "job_profile",
   "department",
   "designation",
-  "reports_to",
   "column_break_31",
   "grade",
   "branch",
@@ -150,7 +163,7 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "First Name",
+   "label": "FirstName",
    "reqd": 1
   },
   {
@@ -163,7 +176,8 @@
    "allow_in_quick_entry": 1,
    "fieldname": "last_name",
    "fieldtype": "Data",
-   "label": "Last Name"
+   "label": "LastName",
+   "reqd": 1
   },
   {
    "fieldname": "employee_name",
@@ -197,8 +211,7 @@
    "label": "Company",
    "options": "Company",
    "print_hide": 1,
-   "remember_last_selected_value": 1,
-   "reqd": 1
+   "remember_last_selected_value": 1
   },
   {
    "default": "Active",
@@ -208,7 +221,6 @@
    "oldfieldname": "status",
    "oldfieldtype": "Select",
    "options": "Active\nLeft",
-   "reqd": 1,
    "search_index": 1
   },
   {
@@ -234,24 +246,21 @@
    "label": "Gender",
    "oldfieldname": "gender",
    "oldfieldtype": "Select",
-   "options": "Gender",
-   "reqd": 1
+   "options": "Gender"
   },
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of Birth",
+   "label": "BirthDate",
    "oldfieldname": "date_of_birth",
-   "oldfieldtype": "Date",
-   "reqd": 1
+   "oldfieldtype": "Date"
   },
   {
    "fieldname": "date_of_joining",
    "fieldtype": "Date",
-   "label": "Date of Joining",
+   "label": "HireDate",
    "oldfieldname": "date_of_joining",
-   "oldfieldtype": "Date",
-   "reqd": 1
+   "oldfieldtype": "Date"
   },
   {
    "allow_in_quick_entry": 1,
@@ -387,7 +396,7 @@
    "fieldname": "reports_to",
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
-   "label": "Reports to",
+   "label": "ReportsTo",
    "oldfieldname": "reports_to",
    "oldfieldtype": "Link",
    "options": "Employee"
@@ -807,13 +816,79 @@
    "fieldtype": "Link",
    "label": "Shift Request Approver",
    "options": "User"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "titleofcourtesy",
+   "fieldtype": "Data",
+   "label": "TitleOfCourtesy"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Data",
+   "label": "Region"
+  },
+  {
+   "fieldname": "postalcode",
+   "fieldtype": "Data",
+   "label": "PostalCode"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "homephone",
+   "fieldtype": "Data",
+   "label": "HomePhone"
+  },
+  {
+   "fieldname": "extension",
+   "fieldtype": "Data",
+   "label": "Extension"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Long Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "photopath",
+   "fieldtype": "Data",
+   "label": "PhotoPath"
+  },
+  {
+   "fieldname": "territories",
+   "fieldtype": "Table MultiSelect",
+   "label": "Territories",
+   "options": "EmployeeTerritories"
   }
  ],
  "icon": "fa fa-user",
  "idx": 24,
  "image_field": "image",
  "links": [],
- "modified": "2021-01-02 16:54:33.477439",
+ "modified": "2021-05-09 19:08:56.464448",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",
