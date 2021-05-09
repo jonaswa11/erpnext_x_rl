@@ -8,6 +8,8 @@
  "engine": "InnoDB",
  "field_order": [
   "item_code",
+  "qty",
+  "discount_percentage",
   "customer_item_code",
   "ensure_delivery_based_on_produced_serial_no",
   "col_break1",
@@ -21,7 +23,6 @@
   "image",
   "image_view",
   "quantity_and_rate",
-  "qty",
   "stock_uom",
   "col_break2",
   "uom",
@@ -35,7 +36,6 @@
   "margin_rate_or_amount",
   "rate_with_margin",
   "column_break_19",
-  "discount_percentage",
   "discount_amount",
   "base_rate_with_margin",
   "section_break_simple1",
@@ -100,7 +100,7 @@
    "fieldtype": "Link",
    "in_global_search": 1,
    "in_list_view": 1,
-   "label": "Item Code",
+   "label": "ProductID",
    "oldfieldname": "item_code",
    "oldfieldtype": "Link",
    "options": "Item",
@@ -214,16 +214,14 @@
    "fieldname": "uom",
    "fieldtype": "Link",
    "label": "UOM",
-   "options": "UOM",
-   "reqd": 1
+   "options": "UOM"
   },
   {
    "fieldname": "conversion_factor",
    "fieldtype": "Float",
    "label": "UOM Conversion Factor",
    "print_hide": 1,
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "stock_qty",
@@ -794,7 +792,7 @@
  "idx": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-02-23 01:15:05.803091",
+ "modified": "2021-05-09 20:29:58.919840",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order Item",
