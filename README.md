@@ -1,4 +1,6 @@
-# Installation
+![architecture](https://github.com/HauptschuIe/erpnext_x_rl/blob/main/docs/training.png?raw=true "Architecture")
+
+# ERPNext Installation
 
 ### Dependencies    
     
