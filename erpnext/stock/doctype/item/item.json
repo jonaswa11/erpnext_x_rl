@@ -18,6 +18,7 @@
   "supplier_name",
   "item_group",
   "unitsprice",
+  "test",
   "quantityperunit",
   "unitsinstock",
   "unitsonorder",
@@ -1095,6 +1096,12 @@
    "fieldname": "quantityperunit",
    "fieldtype": "Data",
    "label": "QuantityPerUnit"
+  },
+  {
+   "default": "0",
+   "fieldname": "test",
+   "fieldtype": "Check",
+   "label": "Test"
   }
  ],
  "has_web_view": 1,
@@ -1104,7 +1111,7 @@
  "index_web_pages_for_search": 1,
  "links": [],
  "max_attachments": 1,
- "modified": "2021-05-09 17:14:04.031701",
+ "modified": "2021-05-27 11:50:32.030361",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
