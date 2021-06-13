@@ -1,0 +1,7 @@
+*.egg-info
+*.pyc
+.idea
+/logs
+*~
+__pycache__/
+token.py
