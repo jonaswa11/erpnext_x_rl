@@ -167,7 +167,7 @@ Install dependencies from the [requirements text file](https://github.com/Haupts
 
 Install the custom environment and its dependencies
 
-        pip install -e .
+    pip install -e .
 
 
 ## 4. Edit Token
@@ -203,3 +203,8 @@ Guide for installing ERPNext on Ubuntu: https://www.vultr.com/docs/how-to-instal
 
 Guide for Installing Specific Python Versions: https://docs.python-guide.org/starting/install3/linux/
 
+Stable Baselines3 Documentation: https://stable-baselines3.readthedocs.io/en/master/
+
+OpenAI Gym: https://gym.openai.com/
+
+Soccer Custom Environment: https://github.com/openai/gym-soccer
