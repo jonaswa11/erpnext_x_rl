@@ -1,3 +1,5 @@
+# Environment for using the trained model
+
 import requests
 import json
 import pandas as pd
@@ -10,7 +12,7 @@ import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
 from gym import Env
-from gym.spaces import Dict, Discrete, Box, Tuple
+from gym.spaces import Dict, Discrete, Box
 from token.py import token, host
 
 
@@ -77,16 +79,19 @@ data = {
 class StockEnv(gym.Env):
     def __init__(self):
 
+        # number of products we want to track
         self.num_of_products = 3
+        
+        # index for database
         self.current_rl_name = ""
-        # Actions we can take: 'don't buy', 'buy', für jedes Produkt
+        
+        # Action Space
         self.action_space = Box(low=-1, high=1, shape=(self.num_of_products,), dtype=np.int32)
 
-        # Stock array
+        # Observation Space
         self.observation_space = Box(low=0, high=self.num_of_products * 400, shape=(self.num_of_products, ), dtype=np.float32)
 
         # Set start stock
-
         self.state = np.array([])
         for products in range(self.num_of_products):
             units_in_stock = get_units_in_stock(products + 1)
@@ -100,23 +105,17 @@ class StockEnv(gym.Env):
 
         
     def step(self, action):
-
+        
         all_entries = get_stock_entry_detail()
 
         for entry in all_entries['message']:
             self.state[int(entry['item_code']) - 1] += int(entry['qty'])
         
         # Apply action
-        # 0 += 0 
-        # 1 += 20  
-        # 2 += 40
-        print("SELF:STATE 1",self.state)
+
         action += 1
         action *= 10
         action = np.round(action, 0)
-        # self.state = np.add(self.state, action)
-        print(action)
-
 
         name = new_id()
         self.current_rl_name = name
@@ -155,6 +154,7 @@ class StockEnv(gym.Env):
         
         data['items'] = items
 
+        # make material request in ERPNext
         post_material_request(json.dumps(data))
 
         if  action_sum != 0:
@@ -194,7 +194,7 @@ class StockEnv(gym.Env):
 
 
     def reset(self):
-        print("RESET")
+
         self.current_rl_name = ""
         items = []      
         return self.state.astype(np.float32)
