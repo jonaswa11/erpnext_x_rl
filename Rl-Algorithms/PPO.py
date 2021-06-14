@@ -13,5 +13,6 @@ checkpoint_callback = CheckpointCallback(save_freq=200000, save_path='./logs/tes
 
 # tensorboard --logdir ./ppo_StockEnvMultiProduct_tensorboard/
 model = PPO("MlpPolicy", env, verbose=1, tensorboard_log="./ppo_StockEnvMultiProduct_tensorboard/")
+# continue training the model
 model.learn(total_timesteps=800000, callback=checkpoint_callback)
 model.save("ppo_stock1")

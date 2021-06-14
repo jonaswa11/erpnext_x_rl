@@ -16,29 +16,26 @@ from gym.spaces import Dict, Discrete, Box
 from token.py import token, host
 
 
-    # 04/07/1996 -> 11/07/1996
+    # Function for iterating through the data. Example output: 04/07/1996 -> 11/07/1996
 def add_day(date):
     new_date = pd.to_datetime(date, dayfirst=True) + pd.DateOffset(days=7) 
     return new_date.strftime("%Y-%m-%d")
 
-    # 04/07/1996 -> 05/07/1996
-def add_day_random(date):
-    new_date = pd.to_datetime(date, dayfirst=True) + pd.DateOffset(days=np.random.randint(-2,2)) 
-    return new_date.strftime("%Y-%m-%d")
 
 headers = {
     'Authorization': token
 }
-# 39.0
+
+# Get units in stock by id. Example output: 39.0
 def get_units_in_stock(item_id):
     units_in_stock = requests.get(f'http:/{host}:8000/api/method/erpnext.api.get_units_in_stock', params={"item_id": item_id}, headers=headers)
     return float(units_in_stock.json()['message'][0]['unitsinstock'])
 
-
+# Make Material Request in ERPNext
 def post_material_request(material_request):
     material_request = requests.post(f'http://{host}:8000/api/resource/Material Request/', json={"data": data},  headers=headers)
 
-# MAT-MR-2021-00011
+# Get last Material Number to check for new action. Example output: MAT-MR-2021-00011
 def get_last_material_request_id():
     id = requests.get(f'http://{host}:8000/api/method/erpnext.api.get_last_material_request_id', headers=headers)
     if not id.json()['message']: 
@@ -46,22 +43,24 @@ def get_last_material_request_id():
     else:
         return id.json()['message'][0]['name']
 
-# 60.0
+# Get Data from Purchase Order. Example output: 60.0
 def get_total_qty_by_rl_name(rl_name):
     total_qty = requests.get(f'http://{host}:8000/api/method/erpnext.api.get_total_qty_by_rl_name', params={"rl_name": rl_name}, headers=headers)
     return total_qty.json()
 
+# Get stock entry details. Example output: 10
 def get_stock_entry_detail():
     stock_entry_details = requests.get(f'http://{host}:8000/api/method/erpnext.api.get_stock_entry_detail', headers=headers)
     return stock_entry_details.json()
 
+# Create new id for purchase order
 def new_id():
     old_id = get_last_material_request_id()
     last_num = int(old_id[-5:])
     last_num += 1
     return "MAT-MR-2021-" + str(last_num).zfill(5)
 
-
+# prefilled data for the material request
 data = {
     "idx": 0,
     "docstatus": 1,
@@ -72,7 +71,6 @@ data = {
     "set_warehouse": "All Warehouses - MC",
     "doctype": "Material Request",  
 }
-
 
 
 
@@ -97,7 +95,7 @@ class StockEnv(gym.Env):
             units_in_stock = get_units_in_stock(products + 1)
             self.state = np.append(self.state, units_in_stock)
 
-        
+        # Get data on stock in ERPNext
         all_entries = get_stock_entry_detail()
 
         for entry in all_entries['message']:
@@ -175,14 +173,12 @@ class StockEnv(gym.Env):
         else:
             reward = 0
         
-
+        # cooldown
         for x in range(10):
             print("Waiting ..." , "[", x, "/10]")
             time.sleep(10)
 
-        
-
-
+  
         done = False
 
         

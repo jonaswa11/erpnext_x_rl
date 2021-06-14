@@ -12,11 +12,6 @@ register(
 )
 
 register(
-    id='StockEnvSingleProduct-v0',
-    entry_point='gym_stock.envs:StockEnvSingleProduct'
-)
-
-register(
     id='StockEnvMultiProduct-v0',
     entry_point='gym_stock.envs:StockEnvMultiProduct'
 )

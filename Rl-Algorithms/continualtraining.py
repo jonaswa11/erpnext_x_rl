@@ -1,24 +1,19 @@
 import gym
 import gym_stock
 
-
 from stable_baselines3 import PPO
 from stable_baselines3.common.env_util import make_vec_env
 
 
 # Parallel environments
 env = make_vec_env('gym_stock:StockEnv-v0', n_envs=1)
-
+#reset environment
 env.reset()
-
+#load model
 loaded_model = PPO.load("ppo_stock1")
 # Create the model, the training environment
 # and the test environment (for evaluation)
 loaded_model.set_env(env)
-
-
-
-
 
 # Evaluate the model every 1000 steps on 5 test episodes
 # and save the evaluation to the "logs/" folder
