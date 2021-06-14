@@ -1,2 +1,2 @@
-Custom OpenAI Gym Environment for training an warehouse reinforcement learning model 
+Custom OpenAI Gym Environment for training a warehouse reinforcement learning model 
 
