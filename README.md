@@ -34,7 +34,9 @@ Tested on a virtual machine with the following specifications:
     apt install software-properties-common
     add-apt-repository ppa:deadsnakes/ppa
     apt install python3.7 python3.7-dev python3.7-doc python3-pip
-    
+    pip3 install ansible
+    apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+
 If an error about the architecture appears:
 
     nano /etc/apt/sources.list
@@ -47,15 +49,12 @@ to
 
     deb [arch=ppc64el,amd64,arm64] http://mirror.nodesdirect.com/mariadb/repo/10.3/ubuntu bionic main
     
-    pip3 install ansible
-    apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
-    add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirror.nodesdirect.com/mariadb/repo/10.3/ubuntu bionic main'
-    
-    
 
+    
 
 #### Install and Configure MariaDB
 
+    add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirror.nodesdirect.com/mariadb/repo/10.3/ubuntu bionic main'
     sudo apt update 
     sudo apt -y install mariadb-server libmysqlclient-dev
     sudo apt install curl nano git pv
