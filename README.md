@@ -135,6 +135,13 @@ Finnish MariaDB Installation
     bench get-app --branch version-13 erpnext
     bench new-site site1.local
     bench --site site1.local install-app erpnext
+
+Increase system's file watchers limit
+
+    echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+    
+Start the bench to access from it from client
+
     bench start
 
 Eneable developer mode
