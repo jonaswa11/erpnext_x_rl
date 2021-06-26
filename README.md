@@ -108,7 +108,7 @@ Finnish MariaDB Installation
 
 #### Install wkhtmltopdf
 
-    sudo apt -y install libxrender1 libxext6 xfonts-75dpi xfonts-base
+    sudo apt -y install libxrender1 libxext6 xfonts-75dpi xfonts-base fontconfig
 
     wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
 
