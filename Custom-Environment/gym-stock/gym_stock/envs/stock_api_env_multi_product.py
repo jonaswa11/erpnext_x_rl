@@ -28,7 +28,7 @@ headers = {
 
 # Get units in stock by id. Example output: 39.0
 def get_units_in_stock(item_id):
-    units_in_stock = requests.get(f'http:/{host}:8000/api/method/erpnext.api.get_units_in_stock', params={"item_id": item_id}, headers=headers)
+    units_in_stock = requests.get(f'http://{host}:8000/api/method/erpnext.api.get_units_in_stock', params={"item_id": item_id}, headers=headers)
     return float(units_in_stock.json()['message'][0]['unitsinstock'])
 
 # Make Material Request in ERPNext
