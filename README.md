@@ -171,6 +171,9 @@ Either Setup ERPNext by your own or use the following restore command to restore
         --with-private-files ./sites/site1.local/private/backups/*private-files.tar \
         ./sites/site1.local/private/backups/*database.sql.gz
 
+Also copy the [Encryption key](https://github.com/HauptschuIe/erpnext_x_rl/blob/main/ERP-System/Backup/20210613_200339-site1_local-site_config_backup.json) to the new site_config.json file
+
+Next add the [api file](https://github.com/HauptschuIe/erpnext_x_rl/blob/main/ERP-System/erpnext/api.py) to the ERPNext directory.
 
 ## 3. Setup a Virtual Environment and the OpenAI Gym Environment
 
