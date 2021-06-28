@@ -30,7 +30,7 @@ class StockEnvMultiProduct(gym.Env):
     def __init__(self):
         
         # Set start values 
-        self.df = pd.read_csv('~/../../home/ubuntu/rltest/gym-stock/gym_stock/dataset/pandasdata.csv')
+        self.df = pd.read_csv('~/../../home/bathesis-jonas/erpnext_x_rl/gym-stock/gym_stock/dataset/pandasdata4.csv')
         self.df['OrderDate'] = self.df['OrderDate'].apply(lambda x: add_day_random(x))
         self.episodes = 0
         self.timesteps = 0
@@ -104,7 +104,7 @@ class StockEnvMultiProduct(gym.Env):
         #value for randomizing date after each episode to prevent overfitting
         self.episodes += 1
         if(self.episodes % 1 == 0):            
-            self.df = pd.read_csv('~/../../home/ubuntu/rltest/gym-stock/gym_stock/dataset/pandasdata4.csv')
+            self.df = pd.read_csv('~/../../home/bathesis-jonas/erpnext_x_rl/gym-stock/gym_stock/dataset/pandasdata4.csv')
             self.df['OrderDate'] = self.df['OrderDate'].apply(lambda x: add_day_random(x))
         # Reset stock
         self.state = np.array(np.random.randint(20, 200, size=(self.num_of_products)))
