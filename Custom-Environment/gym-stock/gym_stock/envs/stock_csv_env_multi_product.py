@@ -34,7 +34,7 @@ class StockEnvMultiProduct(gym.Env):
         self.df['OrderDate'] = self.df['OrderDate'].apply(lambda x: add_day_random(x))
         self.episodes = 0
         self.timesteps = 0
-        self.num_of_products = 77
+        self.num_of_products = 3
         self.neg_buy_reward = 0
         self.stock_reward = 0
        
