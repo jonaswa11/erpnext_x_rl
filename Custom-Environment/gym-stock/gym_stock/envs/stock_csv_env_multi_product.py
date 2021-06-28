@@ -71,11 +71,13 @@ class StockEnvMultiProduct(gym.Env):
         if list.empty:
             pass   
         else: 
-            for i in range(0, len(list)):                
+            for i in range(0, len(list)): 
                 index = list.iloc[i]['ProductID'].astype(int)
-                self.state[index - 1] -= list.iloc[i]['Quantity'] * (round(random.uniform(0.5,1.5), 1))
-       
-
+                if  index > self.num_of_products:
+                    pass
+                else:
+                    self.state[index - 1] -= list.iloc[i]['Quantity'] * (round(random.uniform(0.5,1.5), 1))
+    
         # Reduce simulation length value at each step by 1 
         self.current_date = add_day(self.current_date)
         
