@@ -13,7 +13,7 @@ from gym import error, spaces, utils
 from gym.utils import seeding
 from gym import Env
 from gym.spaces import Dict, Discrete, Box
-from token.py import token, host
+from sectoken import token, host
 
 
     # Function for iterating through the data. Example output: 04/07/1996 -> 11/07/1996
