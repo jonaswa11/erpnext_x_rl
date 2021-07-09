@@ -7,10 +7,10 @@ from stable_baselines3.common.env_util import make_vec_env
 
 # Parallel environments
 env = make_vec_env('gym_stock:StockEnv-v0', n_envs=1)
-#reset environment
+
 env.reset()
-#load model
-loaded_model = PPO.load("ppo_stock1")
+
+loaded_model = PPO.load("ppo_products3")
 # Create the model, the training environment
 # and the test environment (for evaluation)
 loaded_model.set_env(env)
@@ -20,4 +20,4 @@ loaded_model.set_env(env)
 loaded_model.learn(total_timesteps=100, log_interval=1, tb_log_name="Logs", reset_num_timesteps=True)
 
 # save the model
-loaded_model.save("ppo_stock2")
+loaded_model.save("ppo_products3cont")
