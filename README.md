@@ -38,6 +38,20 @@ Tested on a virtual machine with the following specifications:
     apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
     add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirror.nodesdirect.com/mariadb/repo/10.3/ubuntu bionic main'
 
+If an error about the architecture appears:
+
+    nano /etc/apt/sources.list
+    
+change
+
+    deb [arch=ppc64el,amd64,i386] http://mirror.nodesdirect.com/mariadb/repo/10.3/ubuntu bionic main
+    
+to
+
+    deb [arch=ppc64el,amd64,arm64] http://mirror.nodesdirect.com/mariadb/repo/10.3/ubuntu bionic main
+    
+
+    
 
 #### Install and Configure MariaDB
 
@@ -94,7 +108,7 @@ Finnish MariaDB Installation
 
 #### Install wkhtmltopdf
 
-    sudo apt -y install libxrender1 libxext6 xfonts-75dpi xfonts-base
+    sudo apt -y install libxrender1 libxext6 xfonts-75dpi xfonts-base fontconfig
 
     wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
 
@@ -121,11 +135,20 @@ Finnish MariaDB Installation
     bench get-app --branch version-13 erpnext
     bench new-site site1.local
     bench --site site1.local install-app erpnext
+
+Increase system's file watchers limit
+
+    echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+    
+Start the bench to access from it from client
+
     bench start
 
 Eneable developer mode
+
     bench set-config developer_mode 1
 Eneable custom scripting
+
     bench --site site1.local set-config server_script_enabled true
 
 #### Implement a Command for Stopping the Bench
@@ -148,6 +171,9 @@ Either Setup ERPNext by your own or use the following restore command to restore
         --with-private-files ./sites/site1.local/private/backups/*private-files.tar \
         ./sites/site1.local/private/backups/*database.sql.gz
 
+Also copy the [Encryption key](https://github.com/HauptschuIe/erpnext_x_rl/blob/main/ERP-System/Backup/20210613_200339-site1_local-site_config_backup.json) to the new site_config.json file
+
+Next add the [api file](https://github.com/HauptschuIe/erpnext_x_rl/blob/main/ERP-System/erpnext/api.py) to the ERPNext directory.
 
 ## 3. Setup a Virtual Environment and the OpenAI Gym Environment
 
