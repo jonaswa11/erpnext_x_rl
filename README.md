@@ -220,6 +220,12 @@ Start training an agent by running the [PPO.py file](https://github.com/Hauptsch
 6. The user can now view this Material Request and make changes, for example to the order quantities. The user then confirms the Material Request and a Purchase Order is created from the Material Request in the ERP system. 5.
 7. The Gym Environment recognizes this and calculates the difference between the proposed order quantity and the order quantity executed by the user. The difference results in the feedback to the agent. If there is no difference between the quantity suggested by the agent and the quantity in the Purchase Order, the reward is r=1. If the quantity is different, a negative reward is calculated from the difference. Note that this reward is in the same order of magnitude as the rewards from the environment for training.
 
+SQL-Statements for removing Data during the learning process
+
+    SET SQL_SAFE_UPDATES = 0;
+    DELETE FROM `tabPurchase Order Item`;
+    DELETE FROM `tabPurchase Order`;
+    DELETE FROM `tabMaterial Request`;
 
 ## Sources and Useful Links
 
